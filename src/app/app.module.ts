@@ -6,6 +6,7 @@ import { ContactPage }                                from '../pages/contact/con
 import { HomePage }                                   from '../pages/home/home';
 import { TabsPage }                                   from '../pages/tabs/tabs';
 import { SearchPage }                                 from '../pages/search/search';
+import { TickerViewer }                                 from '../pages/tickerviewer/tickerviewer';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { SearchPage }                                 from '../pages/search/sear
     ContactPage,
     HomePage,
     TabsPage,
-    SearchPage
+    SearchPage,
+    TickerViewer
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -26,7 +28,8 @@ import { SearchPage }                                 from '../pages/search/sear
     ContactPage,
     HomePage,
     TabsPage,
-    SearchPage
+    SearchPage,
+    TickerViewer
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })

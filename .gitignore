@@ -1,3 +1,5 @@
 node_modules/*
 token
 *.swp
+typings/*
+www/build/*

@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title style="width: 200px">{{ ticker }} </ion-title>
+
+    <button (click)="addTicker()" ion-button icon-only icon-right style="position: absolute; right: 10px; top: 5px;">
+      <ion-icon name="star-outline" *ngIf="selected"></ion-icon>
+      <ion-icon name="star" *ngIf="!selected"></ion-icon>
+    </button> 
+
+
+  </ion-navbar>
+
+
+</ion-header>
+
+<ion-content class="list-avatar-page">
+  <ion-list *ngFor="let item of items">
+
+  <ion-list-header>
+    <h1>{{ item.name }}</h1>
+  
+  </ion-list-header>
+
+    <ion-item *ngFor="let child of item.children">
+      <h2>{{ child.name }}</h2>
+      <p *ngFor="let smallchild of child.children">{{ smallchild.name.title }}</p>
+    </ion-item>
+  </ion-list>
+</ion-content>
