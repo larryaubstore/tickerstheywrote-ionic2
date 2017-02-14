@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "debug": "registry:dt/debug#0.0.0+20160620211513"
+  },
+  "globalDependencies": {
+    "axios": "registry:dt/axios#0.9.1+20161016142654"
+  }
+}
