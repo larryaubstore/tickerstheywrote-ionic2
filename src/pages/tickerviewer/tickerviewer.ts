@@ -42,7 +42,7 @@ export class TickerViewer implements OnInit {
     let tickerDetail = this.offlineDb.getTickerDetail(ticker, year);
 
     tickerDetail.then( (items) => {
-        this.items = items.data;
+        this.items = items['data'];
     });
 
 

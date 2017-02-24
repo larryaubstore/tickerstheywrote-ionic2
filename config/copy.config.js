@@ -29,5 +29,9 @@ module.exports = {
   copyDebug: {
     src: ['{{SRC}}/lib/debug.js'], 
     dest: '{{BUILD}}'
+  },
+  copyPouch: {
+    src: ['node_modules/pouchdb/dist/pouchdb.min.js'], 
+    dest: '{{BUILD}}'
   }
 }
