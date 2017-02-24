@@ -35,24 +35,38 @@ export class OfflineDb {
 
     return new Promise( (resolve, reject) => {
 
-      // http://www.tickerstheywrote.com/tickerhistory/graph.json?year=2017&ticker=AMZN
-      let getCall =  axios.get('http://www.tickerstheywrote.com/tickerhistory/graph.json?year=' 
-                       + year + '&ticker=' + ticker);
 
-      getCall.then( (items) => {
-        this.tickerDetailDB.get(ticker).then( (doc) => {
-          resolve(doc);
-        }).catch( (err) => {
-          let putDB: any = this.tickerDetailDB.put({ _id: ticker, data: items.data });
-          putDB.then( () => {
-            resolve(items.data);
+      if (this.offline) {
+          this.tickerDetailDB.get(ticker).then( (doc) => {
+            resolve(doc);
+          }).catch( (err) => {
+            reject(err); 
           });
 
-          putDB.catch( (err) => {
+      } else {
+        // http://www.tickerstheywrote.com/tickerhistory/graph.json?year=2017&ticker=AMZN
+        let getCall : Promise<any> =  axios.get('http://www.tickerstheywrote.com/tickerhistory/graph.json?year=' 
+                         + year + '&ticker=' + ticker);
+
+        getCall.then( (items) => {
+  
+          this.tickerDetailDB.get(ticker).then( (doc) => {
+            return this.tickerDetailDB.remove(doc);
+          }).catch(function (err) {
+            if (err.status !== 404) {
+              resolve(err);
+            } else {
+              return;
+            }
+          }).then( () => {
+            return this.tickerDetailDB.put({ _id: ticker, data: items.data });
+          }).then( () => {
+            resolve(items);  
+          }).catch( (err) => {
             reject(err);
           });
         });
-      });
+      }
     });
   }
 
