@@ -53,6 +53,9 @@ export class TickerViewer implements OnInit {
 
   addTicker() {
     this.selected = !this.selected;
+    this.offlineDb.addTicker(this.ticker).catch( (err) =>  {
+      this.log(err);
+    });
   }
 
 }
