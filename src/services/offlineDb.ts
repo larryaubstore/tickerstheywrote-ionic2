@@ -4,6 +4,7 @@ import * as  axios            from 'axios';
 import * as PouchDB           from 'pouchdb';
 import { Network }            from 'ionic-native';
 import { Platform }           from "ionic-angular";
+import PouchAdapterCordovaSqlite from 'pouchdb-adapter-cordova-sqlite';
 
 @Injectable()
 export class OfflineDb {
@@ -20,8 +21,13 @@ export class OfflineDb {
 
     this.connectSub = Network.onConnect().subscribe( () => this.onConnect);
     this.disconnectSub = Network.onDisconnect().subscribe( () => this.onDisconnect);
+
+    PouchDB.plugin(PouchAdapterCordovaSqlite);
+    let adapter = this.platform.is('cordova') ? 'cordova-sqlite' : 'websql';
+    console.log('platform ==> ' + adapter);
       
-    this.tickerDetailDB = new PouchDB('tickerDetail.db', { adapter: this.platform.is('cordova') ? 'cordova-sqlite' : 'websql' });
+    this.tickerDetailDB = new PouchDB('tickerDetail.db', { adapter: adapter });
+    //this.tickerDetailDB = new PouchDB('tickerDetail.db');
   }
 
 

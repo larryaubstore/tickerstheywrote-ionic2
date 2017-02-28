@@ -33,5 +33,9 @@ module.exports = {
   copyPouch: {
     src: ['node_modules/pouchdb/dist/pouchdb.min.js'], 
     dest: '{{BUILD}}'
+  },
+  copySqlite: {
+    src: ['node_modules/pouchdb-adapter-cordova-sqlite/dist/pouchdb.cordova-sqlite.min.js'], 
+    dest: '{{BUILD}}'
   }
 }
