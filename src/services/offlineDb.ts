@@ -3,7 +3,7 @@ import { Injectable }         from '@angular/core';
 import * as  axios            from 'axios';
 import * as  async            from 'async';
 import * as PouchDB           from 'pouchdb';
-import { Network }            from 'ionic-native';
+//import { Network }            from 'ionic-native';
 import { Platform }           from "ionic-angular";
 import PouchAdapterCordovaSqlite from 'pouchdb-adapter-cordova-sqlite';
 
@@ -21,8 +21,8 @@ export class OfflineDb {
     this.log = debug('offlineDb');
     this.log('offlneDb');
 
-    this.connectSub = Network.onConnect().subscribe( () => this.onConnect);
-    this.disconnectSub = Network.onDisconnect().subscribe( () => this.onDisconnect);
+    //this.connectSub = Network.onConnect().subscribe( () => this.onConnect);
+    //this.disconnectSub = Network.onDisconnect().subscribe( () => this.onDisconnect);
 
     PouchDB.plugin(PouchAdapterCordovaSqlite);
     let adapter = this.platform.is('cordova') ? 'cordova-sqlite' : 'websql';

@@ -1,0 +1,33 @@
+[2K[GThe Ionic CLI has an update available (3.19.0 => 3.19.1)!
+[2K[G
+[2K[G[WARN] No write permissions for global node_modules--automatic CLI updates are disabled.
+
+       To fix, see https://docs.npmjs.com/getting-started/fixing-npm-permissions
+       
+       Or, install the CLI update manually:
+       
+       npm i -g ionic@latest
+       
+
+[2K[G⠙ Gathering environment info [2K[G⠹ Gathering environment info [2K[G⠸ Gathering environment info [2K[G[2K[G
+cli packages: (/usr/local/lib/node_modules)
+[2K[G
+    @ionic/cli-utils  : 1.19.0
+    ionic (Ionic CLI) : 3.19.0
+[2K[G
+local packages:
+[2K[G
+    @ionic/app-scripts : 3.1.6
+    Ionic Framework    : ionic-angular 3.9.2
+[2K[G
+System:
+[2K[G
+    Node : v6.11.1
+    npm  : 3.5.2 
+    OS   : Linux 4.8
+[2K[G
+Misc:
+[2K[G
+    backend : pro
+[2K[G
+[2K[G
